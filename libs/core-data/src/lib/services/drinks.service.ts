@@ -5,6 +5,7 @@ import {
   DrinkEnvironment,
   DRINK_ENVIRONMENT,
 } from '@espresso-recipes/environment';
+import { NotificationsService } from './notifications.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,8 @@ export class DrinksService {
 
   constructor(
     private httpClient: HttpClient,
-    @Inject(DRINK_ENVIRONMENT) private environment: DrinkEnvironment
+    @Inject(DRINK_ENVIRONMENT) private environment: DrinkEnvironment,
+    private notificationsService: NotificationsService
   ) {}
 
   all() {
@@ -26,15 +28,18 @@ export class DrinksService {
   }
 
   create(drinks: Drink) {
+    this.notificationsService.notify('Created Drink HTTP Call');
     return this.httpClient.post<Drink>(this.getUrl(), drinks);
   }
 
   update(drinks: Drink) {
+    this.notificationsService.notify('Updated Drink HTTP Call');
     return this.httpClient.patch<Drink>(this.getUrlById(drinks.id), drinks);
   }
 
-  delete({ id }: Drink) {
-    return this.httpClient.delete<Drink>(this.getUrlById(id));
+  delete(id: number) {
+    this.notificationsService.notify('Deleted Drink HTTP Call');
+    return this.httpClient.delete(this.getUrlById(id));
   }
 
   private getUrl() {

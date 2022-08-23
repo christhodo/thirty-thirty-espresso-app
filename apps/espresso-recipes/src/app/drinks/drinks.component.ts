@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { emptyDrink, Drink } from '@espresso-recipes/api-interfaces';
 import { DrinksService } from '@espresso-recipes/core-data';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'espresso-recipes-drinks',
@@ -43,8 +44,11 @@ export class DrinksComponent implements OnInit {
     this.drinksService.update(drink).subscribe((result) => this.fetchDrinks());
   }
 
-  deleteDrink(drinkId) {
-    console.log('DELETE Drink', drinkId);
+  deleteDrink(id: number) {
+    this.drinksService
+      .delete(id)
+      .pipe(tap(() => this.fetchDrinks()))
+      .subscribe();
   }
 
   reset() {
