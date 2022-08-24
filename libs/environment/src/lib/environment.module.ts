@@ -1,7 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { DrinkEnvironment } from './drinks.model';
+import { DRINK_ENVIRONMENT } from './drinks.token';
 
-@NgModule({
-  imports: [CommonModule],
-})
-export class EnvironmentModule {}
+@NgModule({})
+export class EnvironmentModule {
+  static withEnvironment(
+    environment: DrinkEnvironment
+  ): ModuleWithProviders<EnvironmentModule> {
+    return {
+      ngModule: EnvironmentModule,
+      providers: [
+        {
+          provide: DRINK_ENVIRONMENT,
+          useValue: environment,
+        },
+      ],
+    };
+  }
+}

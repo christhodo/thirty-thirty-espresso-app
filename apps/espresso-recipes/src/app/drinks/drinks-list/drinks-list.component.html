@@ -1,1 +1,33 @@
-<p>drinks-list works!</p>
+<div class="drinks-containers">
+  <div class="drinks-list">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> Top Ten </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item
+            *ngFor="let drink of drinks"
+            (click)="selected.emit(drink)"
+            class="mat-list-item"
+          >
+            <h3 matLine>{{ drink.name | titlecase }}</h3>
+            <p matLine>Syrup: {{ drink.syrup }}</p>
+            <p matLine>Shots: {{ drink.shots }}</p>
+            <p matLine>Milk Type: {{ drink.milk }}</p>
+            <p matLine>Description: {{ drink.description }}</p>
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="
+                deleted.emit(drink.id); $event.stopImmediatePropagation()
+              "
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

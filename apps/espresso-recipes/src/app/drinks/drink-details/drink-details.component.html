@@ -1,1 +1,72 @@
-<p>drink-details works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <span *ngIf="currentDrink?.id; else elseBlock">
+        {{ originalName | titlecase }}
+      </span>
+      <ng-template #elseBlock>Select a Drink</ng-template>
+    </mat-card-title>
+  </mat-card-header>
+  <form #form="ngForm" (submit)="saved.emit(currentDrink)">
+    <mat-card-content>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          [(ngModel)]="currentDrink.name"
+          name="name"
+          required
+          type="text"
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Syrup</mat-label>
+        <textarea
+          matInput
+          placeholder="syrup"
+          [(ngModel)]="currentDrink.syrup"
+          name="syrup"
+          type="text"
+        ></textarea>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Shots</mat-label>
+        <textarea
+          matInput
+          placeholder="shots"
+          [(ngModel)]="currentDrink.shots"
+          name="shots"
+          type="text"
+        ></textarea>
+      </mat-form-field>
+      <section class="full-width" appearance="outline" floatlabel></section>
+      <section class="full-width">
+        <h4>{{ currentDrink.milk }} Milk</h4>
+        <mat-slider
+          class="full-width"
+          min="0"
+          max="100"
+          thumbLabel
+          name="Rating"
+          [(ngModel)]="currentDrink.milk"
+        >
+        </mat-slider>
+      </section>
+    </mat-card-content>
+    <section></section>
+    <mat-card-actions>
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        mat-button
+        color="primary"
+      >
+        Save
+      </button>
+      <button type="button" mat-button (click)="cancelled.emit()">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </form>
+</mat-card>
