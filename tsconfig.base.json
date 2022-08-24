@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@espresso-recipes/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@espresso-recipes/core-data": ["libs/core-data/src/index.ts"],
+      "@espresso-recipes/core-state": ["libs/core-state/src/index.ts"],
+      "@espresso-recipes/environment": ["libs/environment/src/index.ts"],
+      "@espresso-recipes/material": ["libs/material/src/index.ts"],
+      "@espresso-recipes/ui-login": ["libs/ui-login/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

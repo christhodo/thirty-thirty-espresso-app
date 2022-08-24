@@ -1,0 +1,20 @@
+{
+  "drinks": [
+    {
+      "id": "1",
+      "name": "Caramel Macchiato",
+      "syrup": "4 pumps Vanilla",
+      "shots": null,
+      "milk": "2 percent",
+      "description": "4 pumps vanilla, pour your steamed milk, shots poured on top, cross hatchedcaramel drizzle"
+    },
+    {
+      "id": "2",
+      "name": "Iced Caramel Macchiato",
+      "syrup": "5 pumps Vanilla",
+      "shots": null,
+      "milk": "2 percent",
+      "description": "4 pumps vanilla, pour your cold milk, add ice, shots poured on top, cross hatched caramel drizzle"
+    }
+  ]
+}

@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'espresso-recipes';
+  links = [{ path: '', icon: 'view_list', title: 'Drinks' }];
 }

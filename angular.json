@@ -2,7 +2,13 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "api-interfaces": "libs/api-interfaces",
+    "core-data": "libs/core-data",
+    "core-state": "libs/core-state",
+    "environment": "libs/environment",
     "espresso-recipes": "apps/espresso-recipes",
-    "espresso-recipes-e2e": "apps/espresso-recipes-e2e"
+    "espresso-recipes-e2e": "apps/espresso-recipes-e2e",
+    "material": "libs/material",
+    "ui-login": "libs/ui-login"
   }
 }
