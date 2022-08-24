@@ -1,1 +1,17 @@
-<p>drinks works!</p>
+<div class="drinks-containers">
+  <div class="drinks-list">
+    <espresso-recipes-drinks-list
+      [drinks]="drinks$ | async"
+      (selected)="selectDrink($event)"
+      (deleted)="deleteDrink($event)"
+    >
+    </espresso-recipes-drinks-list>
+  </div>
+  <div class="drink-details">
+    <espresso-recipes-drink-details
+      [drink]="selectedDrink"
+      (cancelled)="reset()"
+      (saved)="saveDrink($event)"
+    ></espresso-recipes-drink-details>
+  </div>
+</div>
