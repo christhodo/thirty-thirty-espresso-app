@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "espresso-recipes": "apps/espresso-recipes",
+    "espresso-recipes-e2e": "apps/espresso-recipes-e2e"
+  }
+}
